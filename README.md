@@ -13,7 +13,7 @@ Build
 A standard CMake install should build this project.
 Please note that the Ninja generator is not supported by the ApprovalTests Catch2 integration.
 The test will fail if Ninja is used as the build generator.
-Otherwise, the following example code should build without for any single-configuration generator.
+Otherwise, the following example code should build for any single-configuration generator.
 ```bash
 mkdir build
 cmake ..
