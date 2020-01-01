@@ -6,6 +6,8 @@ FetchContent_Declare(ApprovalTests
 
 FetchContent_Declare(Catch2
                      GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-                     GIT_TAG v2.11.1)
+                     #GIT_TAG v2.11.1
+                     GIT_TAG v3.0.0-preview1
+        )
 
 FetchContent_MakeAvailable(ApprovalTests Catch2)
