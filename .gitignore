@@ -125,3 +125,7 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 tests/tests.test_hello-world.approved.txt
+build_meson/
+/subprojects/approvaltests/
+/subprojects/Catch2-2.9.0/
+/subprojects/packagecache/
