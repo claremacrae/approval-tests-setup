@@ -1,0 +1,49 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    env:
+      BUILD_DIR_PATH: ${{ github.workspace }}/build_space
+    strategy:
+      fail-fast: false
+      matrix:
+        buildtype: [
+          windows-latest,
+          ubuntu-latest,
+          macOS-latest,
+        ]
+        include:
+        - buildtype: windows-latest
+          os: windows-latest
+          generator: '"Visual Studio 16 2019"'
+          in_source_build: true
+
+        - buildtype: ubuntu-latest
+          os: ubuntu-latest
+          generator: '"Unix Makefiles"'
+          in_source_build: true
+
+        - buildtype:  macOS-latest
+          os: macOS-latest
+          generator: '"Unix Makefiles"'
+          in_source_build: true
+
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@master
+    - name: make build space
+      run: |
+        mkdir ${{ env.BUILD_DIR_PATH }}
+    - name: cmake
+      run: |
+        cmake --version
+        cmake -G ${{ matrix.generator }} ${{ github.workspace }}
+      working-directory: ${{ env.BUILD_DIR_PATH }}
+    - name: build
+      run: cmake --build .
+      working-directory: ${{ env.BUILD_DIR_PATH }}
+    - name: test
+      run: ctest --verbose --parallel 4 -C Debug
+      working-directory: ${{ env.BUILD_DIR_PATH }}
