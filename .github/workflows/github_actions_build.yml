@@ -11,7 +11,8 @@ jobs:
       matrix:
         buildtype: [
           windows-latest,
-          ubuntu-latest,
+# Disabled as CMake 3.14 or higher is required. It is running version 3.12.4
+#          ubuntu-latest,
           macOS-latest,
         ]
         include:
