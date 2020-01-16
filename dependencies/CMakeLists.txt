@@ -3,7 +3,7 @@ include(FetchContent)
 if (NOT TARGET ApprovalTests)
     FetchContent_Declare(ApprovalTests
                          GIT_REPOSITORY https://github.com/approvals/ApprovalTests.cpp.git
-                         GIT_TAG 73c09d0f855a63eb89aa4b883f5b834cd8f3f9c5)
+                         GIT_TAG 8a3f68eb9cce8ea9a9ec2c32887b3fcfc54b058c)
     FetchContent_MakeAvailable(ApprovalTests)
 
 endif ()
