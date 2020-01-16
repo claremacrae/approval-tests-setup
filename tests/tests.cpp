@@ -1,5 +1,5 @@
 #include <catch2/catch.hpp>
-#include <ApprovalTests/Approvals.h>
+#include <ApprovalTests.hpp>
 #include <my_project/hello_world.hpp>
 
 TEST_CASE("test hello-world") {
